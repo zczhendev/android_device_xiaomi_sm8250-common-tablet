@@ -44,19 +44,8 @@ vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
 
-# Camera motor (sound) - from lmi
-system/media/audio/ui/popup_cangmen_down.ogg:system_ext/media/audio/ui/popup_cangmen_down.ogg|573b107889ccf639db5455af21129ce1fee93bc5
-system/media/audio/ui/popup_cangmen_up.ogg:system_ext/media/audio/ui/popup_cangmen_up.ogg|f152dea254b4eaae403b791c49c60c05ccf12ea7
-system/media/audio/ui/popup_chilun_down.ogg:system_ext/media/audio/ui/popup_chilun_down.ogg|e200a3de45abbf2057ca0c6a735b6a6a78ec1b1c
-system/media/audio/ui/popup_chilun_up.ogg:system_ext/media/audio/ui/popup_chilun_up.ogg|908bd714b58648c8861c0e56ca7c6f0db84d4e2b
-system/media/audio/ui/popup_jijia_down.ogg:system_ext/media/audio/ui/popup_jijia_down.ogg|680b41897aaa47972630012e0c68396bf4cbe9c7
-system/media/audio/ui/popup_jijia_up.ogg:system_ext/media/audio/ui/popup_jijia_up.ogg|bd71c2f07f439a2afc9e9b435ef8d1a7a28a4fc1
-system/media/audio/ui/popup_mofa_down.ogg:system_ext/media/audio/ui/popup_mofa_down.ogg|ebfec5126f64a5eea69aad43af169de5eed398ae
-system/media/audio/ui/popup_mofa_up.ogg:system_ext/media/audio/ui/popup_mofa_up.ogg|95ef57769ca5e4a3264e4adf7c9958d55ff1a32c
-system/media/audio/ui/popup_muqin_down.ogg:system_ext/media/audio/ui/popup_muqin_down.ogg|3ecf82ae3d4ec853e0832901d2163c252ad62e07
-system/media/audio/ui/popup_muqin_up.ogg:system_ext/media/audio/ui/popup_muqin_up.ogg|047ae904c2932bc6112cd7ef4458f4cad1972181
-system/media/audio/ui/popup_yingyan_down.ogg:system_ext/media/audio/ui/popup_yingyan_down.ogg|de1623b20f311322dc79a3d152ca30318e1ed0db
-system/media/audio/ui/popup_yingyan_up.ogg:system_ext/media/audio/ui/popup_yingyan_up.ogg|0c3a716ba49dd682a6d58cca04eece0f81ca6834
+# Camera motor (sound) - not present on dagu firmware
+# (removed popup_*.ogg block - dagu HyperOS 14 does not ship these assets)
 
 # CDSP
 vendor/bin/cdsprpcd
@@ -217,10 +206,9 @@ vendor/lib64/libssd.so
 vendor/lib64/libtzdrmgenprov.so
 vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
 
-# DRM (OEM Crypto API)
+# DRM (OEM Crypto API) - liboemcrypto.so not present on dagu firmware
 vendor/lib64/libcpion.so
 vendor/lib64/libminkdescriptor.so
-vendor/lib64/liboemcrypto.so
 vendor/lib64/libtrustedapploader.so
 
 # DRM (Widevine)
@@ -237,12 +225,9 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 vendor/lib/vendor.qti.hardware.dsp@1.0.so
 vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 
-# Embedded Secure Element power manager
-vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
-vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc
-vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so
+# Embedded Secure Element power manager - tablet dagu has no secure element HW
+# (removed esepowermanager@1.1 entries; @1.0.so retained, exists in firmware)
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
-vendor/lib64/vendor.qti.esepowermanager@1.1.so
 
 # Feature enabler client
 vendor/bin/feature_enabler_client
@@ -563,13 +548,8 @@ vendor/radio/qcril_database/upgrade/8_version_update_ecc_table.sql
 vendor/radio/qcril_database/upgrade/9_version_update_ecc_table.sql
 vendor/radio/qcril_database/qcril.db
 
-# Secure element
-vendor/bin/hw/vendor.qti.secure_element@1.2-service
-vendor/etc/init/vendor.qti.secure_element@1.2-service.rc
-vendor/lib64/android.hardware.secure_element@1.0-impl.so
-vendor/lib64/jcos_nq_client.so
-vendor/lib64/ls_nq_client.so
-vendor/lib64/se_nq_extn_client.so
+# Secure element - tablet dagu has no NFC secure element HW (NXP NQ stack absent)
+# (removed secure_element@1.2-service + nq_client libs - all absent in dagu firmware)
 
 # Snapdragon Computer Vision Engine
 vendor/lib/libscveCommon.so
@@ -649,64 +629,4 @@ vendor/bin/cnss-daemon
 vendor/etc/wifi/aoa_cldb_falcon.bin
 vendor/etc/wifi/aoa_cldb_swl14.bin
 
-# WiFi Display (system) - from dada
-system/framework/WfdCommon.jar;BOOT_JAR|76fab5ed43206989057284fa26e8b894f1da102f
-system_ext/bin/wfdservice64:system_ext/bin/wfdservice|34851904d02d11d3cfebbc7b8745a9444ba3e7c5
-system_ext/etc/init/wfdservice.rc|907def8565d8f91f531ca7dfad880af05d540b0c
-system_ext/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml|6669d5ee462c981663b8ac573d84d334e4eed96c
-system_ext/etc/seccomp_policy/wfdservice64.policy|1e331272649395423b11c575892e0bdc9433b820
-system_ext/etc/wfdconfigsink.xml|d718bc1ccb3e6e52a0af7bf4de62445c0b083651
-system_ext/lib64/libmmrtpdecoder.so|8b143c0b004a2f5ab8d7911dd463de0ceea794e7
-system_ext/lib64/libmmrtpencoder.so|eef3f64e6c2892fc0c87e176f5a83f7fe07761d3
-system_ext/lib64/libwfdavenhancements.so|8c968c6930e44901ef8c6abd6356f2308600d90e
-system_ext/lib64/libwfdclient.so|2d1bf9b010ecfb8532eaf6a12c8bf60f9e8ffe08
-system_ext/lib64/libwfdcommonutils.so|3ae375016a9551e51f26710e8b07d20eeef2b76f
-system_ext/lib64/libwfdconfigutils.so|4d8200cc4c455f54fcbce927f5cabeb7b591f5d0
-system_ext/lib64/libwfddisplayconfig.so|27f5d6e284edf05cc7776e5be010912973000ab9
-system_ext/lib64/libwfdmminterface.so|8d3d493fef797aef2feaab4e09e50250ddf5dc9a
-system_ext/lib64/libwfdmmsink.so|4569ce9941eb5d06db599146ed80b8a32d7cd97f
-system_ext/lib64/libwfdmmsrc_system.so|0cc970954800566baddbf760b153b027940180f5
-system_ext/lib64/libwfdnative.so;SYMLINK=system_ext/priv-app/WfdService/lib/arm64/libwfdnative.so|9513bbbd813dd05fb063d3c9e72640a1bc9156c2|f2918bbd8e4c691299e840863e8cb502a47bb773
-system_ext/lib64/libwfdrtsp.so|1ab4fc5b75d25f551df3593d5856e6f7893a4176
-system_ext/lib64/libwfdservice.so|af0e31f17ed997a5d8bad64cdad486be28cb9f07
-system_ext/lib64/libwfdsinksm.so|cc899b719fa11d844c65908d7fdc18600451324d
-system_ext/lib64/libwfduibcinterface.so|432d54b072d8f1c80409b6e11f4f833ca9576937
-system_ext/lib64/libwfduibcsink.so|d12b05bbcefdff6addc2c31567a656b7540d7489
-system_ext/lib64/libwfduibcsinkinterface.so|a41b4d1fa4307a247b1f059a5b5cdf7f6a645db3
-system_ext/lib64/libwfduibcsrc.so|5be7d282be9ab45297bd030f8e37a45f48aa8677
-system_ext/lib64/libwfduibcsrcinterface.so|0e32acc87c8518e8ebb44f6ef341a2e278e1e7c2
-system_ext/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so|2b2563450ad6a8d46d5648b97f63f87c5d9983ca
-system_ext/lib64/vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk.so|58cd9358df40aa16ddf0e603b736c58588623b9e
-system_ext/priv-app/WfdService/WfdService.apk|b8a1d9f83804d274fab6e09e0607082801207f60
-
-# WiFi Display (vendor)
-vendor/bin/wifidisplayhalservice
-vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
-vendor/etc/seccomp_policy/wifidisplayhalservice.policy
-vendor/etc/wfdconfig.xml
-vendor/lib/libFileMux_proprietary.so
-vendor/lib/libmm-hdcpmgr.so
-vendor/lib/libmmrtpdecoder_proprietary.so
-vendor/lib/libmmrtpencoder_proprietary.so
-vendor/lib/libwfdcodecv4l2_proprietary.so
-vendor/lib/libwfdcommonutils_proprietary.so
-vendor/lib/libwfdconfigutils_proprietary.so
-vendor/lib/libwfddisplayconfig_proprietary.so
-vendor/lib/libwfdhdcpcp.so
-vendor/lib/libwfdhdcpservice_proprietary.so
-vendor/lib/libwfdmminterface_proprietary.so
-vendor/lib/libwfdmmservice_proprietary.so
-vendor/lib/libwfdmmsrc_proprietary.so
-vendor/lib/libwfdmodulehdcpsession.so
-vendor/lib/libwfdrtsp_proprietary.so
-vendor/lib/libwfdsessionmodule.so
-vendor/lib/libwfdsourcesession_proprietary.so
-vendor/lib/libwfdsourcesm_proprietary.so
-vendor/lib/libwfduibcinterface_proprietary.so
-vendor/lib/libwfduibcsink_proprietary.so
-vendor/lib/libwfduibcsinkinterface_proprietary.so
-vendor/lib/libwfduibcsrc_proprietary.so
-vendor/lib/libwfduibcsrcinterface_proprietary.so
-vendor/lib/libwfdutils_proprietary.so
-vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so;MODULE_SUFFIX=_vendor
-vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
+# WiFi Display: removed for dagu tablet (32/64-bit ABI conflict, MiraCast unused)

@@ -7,5 +7,4 @@ vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mlipay.xml
 vendor/lib64/libmlipay.so
 vendor/lib64/libmlipay@1.1.so
 
-# Soter service (Tencent)
-vendor/app/SoterService/SoterService.apk
+# Soter service (Tencent) - SoterService.apk absent in dagu firmware

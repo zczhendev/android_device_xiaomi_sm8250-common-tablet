@@ -427,4 +427,4 @@ PRODUCT_PACKAGES += \
     libwfdaac_vendor
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/sm8250-common-tablet/sm8250-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/sm8250-common-tablet/sm8250-common-tablet-vendor.mk)

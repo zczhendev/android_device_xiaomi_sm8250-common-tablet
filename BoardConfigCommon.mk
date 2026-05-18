@@ -95,7 +95,7 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250
 TARGET_KERNEL_CONFIG := \
     vendor/kona-perf_defconfig \
     vendor/debugfs.config \
-    vendor/xiaomi/sm8250-common-tablet.config
+    vendor/xiaomi/sm8250-common.config
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
