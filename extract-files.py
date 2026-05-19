@@ -55,11 +55,11 @@ namespace_imports = [
     'vendor/qcom/opensource/commonsys/display',
     'vendor/qcom/opensource/dataservices',
     'vendor/qcom/opensource/display',
-    'vendor/xiaomi/sm8250-common',
+    'vendor/xiaomi/sm8250-common-tablet',
 ]
 
 module = ExtractUtilsModule(
-    'sm8250-common',
+    'sm8250-common-tablet',
     'xiaomi',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
